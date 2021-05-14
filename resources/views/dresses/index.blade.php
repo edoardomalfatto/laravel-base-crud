@@ -9,7 +9,7 @@
 
 <h1>I vestiti</h1> 
 
-
+<a href="{{route('vestiti.create')}}" class="btn btn-primary">Inserisci Vestito</a>
 <table class="table">
     <thead>
       <tr>
