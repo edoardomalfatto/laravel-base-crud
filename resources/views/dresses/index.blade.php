@@ -18,6 +18,7 @@
         <th scope="col">Color</th>
         <th scope="col">Size</th>
         <th scope="col">Description</th>
+        <th class="left-margin" scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -28,9 +29,21 @@
             <td>{{$vestito['color']}}</td>
             <td>{{$vestito['size']}}</td>
             <td>{{$vestito['description']}}</td>
-            <td>
+            <td class="actions">
                 <a href="{{route ('vestiti.show',["vestiti"=> $vestito -> id])}}" class="btn btn-info">Tutti i Dettagli</a>
+
+                
+                <a href="{{route ('vestiti.edit',["vestiti"=> $vestito -> id])}}" class="btn btn-warning">Modifica</a>
+
+                <form action="{{route ('vestiti.destroy',["vestiti"=> $vestito -> id])}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger">Cancella</button>
+                </form>
+              
             </td>
+
+            
           </tr>  
         @endforeach
 

@@ -6,6 +6,16 @@
 
 @section('content')
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
 <form action="{{route('vestiti.store')}}" method="post">
   @csrf
   @method('POST')
@@ -35,7 +45,14 @@
     </div>
     <div class="form-group">
       <label for="season">Season:</label>
-      <input type="text" class="form-control" name="season" id="season">
+      <select name="season" id="season" class="form-control">
+        <option value="">Seleziona stagione</option>
+        <option value="estivo">Estivo</option>
+        <option value="primaverile">Primaverile</option>
+        <option value="autunnale">Autunnale</option>
+        <option value="invernale">Invernale</option>
+
+      </select>
     </div>
 
     <button type="submit" class="btn btn-default">Submit</button>
